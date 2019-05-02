@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+{#		<title>WebMag HTML Template</title>#}
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    {% block title %}
+        <title>Title</title>
+    {% endblock %}
+</head>
+<body>
+
+    		<!-- Header -->
+		<header id="header">
+			<!-- Nav -->
+			<div id="nav">
+				<!-- Main Nav -->
+				<div id="nav-fixed">
+					<div class="container">
+						<!-- logo -->
+						<div class="nav-logo">
+							<a href="{% url 'post:index' %}" class="logo"><img src="{% static '/img/logo.png' %}" alt=""></a>
+						</div>
+						<!-- /logo -->
+
+						<!-- nav -->
+						<ul class="nav-menu nav navbar-nav hidden-sm hidden-xs">
+{#							<li><a href="">News</a></li>#}
+							<li><a href="{% url 'post:popular' %}">Popular</a></li>
+                            {% for cat in catsBase %}
+							    <li class="cat-1"><a href="{% url 'post:category' cat.id %}">{{ cat.name }}</a></li>
+                            {% endfor %}
+{#							<li class="cat-2"><a href="">JavaScript</a></li>#}
+{#							<li class="cat-3"><a href="">Css</a></li>#}
+{#							<li class="cat-4"><a href="">Django</a></li>#}
+						</ul>
+						<!-- /nav -->
+
+						<!-- search & aside toggle -->
+						<div class="nav-btns">
+							<button class="aside-btn" onclick="displayNav(event)"><i class="fa fa-bars"></i></button>
+{#							<button class="search-btn"><i class="fa fa-search"></i></button>#}
+{#                                <form class="search-form" method="get" action="{% url 'post:search' %}">#}
+{#                                    <input class="search-input" type="text" name="q"  value="{{ request.Get.q }}" placeholder="Enter Your Search ..." width="500">#}
+{#                                    <button class="btn btn-primary" type="submit">search</button>#}
+{#                                </form>#}
+
+                            {% if request.user.is_authenticated %}
+                                    <a href="{% url 'accounts:logout_user' %}" class="hidden-xs hidden-sm">logout</a>
+                                {% else %}
+                                    <a href="{% url 'accounts:login_user' %}" class="hidden-sm hidden-xs">login / </a><a href="{% url 'accounts:user_register' %}" class="hidden-xs hidden-sm">register</a>
+                                {% endif %}
+						</div>
+						<!-- /search & aside toggle -->
+					</div>
+				</div>
+				<!-- /Main Nav -->
+
+				<!-- Aside Nav -->
+				<div id="nav-aside" style="display: none">
+					<!-- nav -->
+					<div class="section-row">
+						<ul class="nav-aside-menu">
+							<li><a href="{% url 'post:index' %}">Home</a></li>
+							<li><a href="{% url 'post:aboutUs' %}">About Us</a></li>
+{#							<li><a href="#">Join Us</a></li>#}
+{#							<li><a href="#">Advertisement</a></li>#}
+							<li><a href="{% url 'post:contact' %}">Contacts</a></li>
+                            {% if request.user.is_authenticated %}
+                                    <li><a href="{% url 'accounts:logout_user' %}">logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'accounts:login_user' %}">login</a> / <a href="{% url 'accounts:user_register' %}">register</a></li>
+                            {% endif %}
+						</ul>
+					</div>
+					<!-- /nav -->
+
+					<!-- widget posts -->
+					<div class="section-row">
+						<h3>Recent Posts</h3>
+                        {% for recent_post in recent %}
+                            <div class="post post-widget">
+                                {% if recent_post.pic %}
+                                    <a class="post-img" href="{% url 'post:read' recent_post.id %}"><img src="{{ recent_post.pic.url }}" alt=""></a>
+                                {% else %}
+                                    <a class="post-img" href="{% url 'post:read' recent_post.id %}"><img src="{% static '/img/widget-2.jpg' %}" alt=""></a>
+                                {% endif %}
+                                <div class="post-body">
+                                    <h3 class="post-title"><a href="{% url 'post:read' recent_post.id %}">{{ recent_post.title }}</a></h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+{#						<div class="post post-widget">#}
+{#							<a class="post-img" href=""><img src="{% static '/img/widget-3.jpg' %}" alt=""></a>#}
+{#							<div class="post-body">#}
+{#								<h3 class="post-title"><a href="">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>#}
+{#							</div>#}
+{#						</div>#}
+{##}
+{#						<div class="post post-widget">#}
+{#							<a class="post-img" href=""><img src="{% static '/img/widget-4.jpg' %}" alt=""></a>#}
+{#							<div class="post-body">#}
+{#								<h3 class="post-title"><a href="">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>#}
+{#							</div>#}
+{#						</div>#}
+					</div>
+					<!-- /widget posts -->
+
+					<!-- social links -->
+					<div class="section-row">
+						<h3>Follow us</h3>
+						<ul class="nav-aside-social">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						</ul>
+					</div>
+					<!-- /social links -->
+
+					<!-- aside nav close -->
+					<button class="nav-aside-close" onclick="unDisplay(event)"><i class="fa fa-times"></i></button>
+					<!-- /aside nav close -->
+				</div>
+				<!-- Aside Nav -->
+			</div>
+			<!-- /Nav -->
+		</header>
+		<!-- /Header -->
+
+    {% block content %}
+    {% endblock%}
+
+    	<!-- Footer -->
+		<footer id="footer" align="center">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+{#					<div class="col-md-5">#}
+{#						<div class="footer-widget">#}
+{#							<div class="footer-logo">#}
+{#								<a href="index.html" class="logo"><img src="./img/logo.png" alt=""></a>#}
+{#							</div>#}
+{#							<ul class="footer-nav">#}
+{#								<li><a href="#">Privacy Policy</a></li>#}
+{#								<li><a href="#">Advertisement</a></li>#}
+{#							</ul>#}
+{#							<div class="footer-copyright">#}
+{#								<span>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->#}
+{#Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>#}
+{#<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+
+					<div class="col-md-4">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="footer-widget">
+									<h3 class="footer-title">About Us</h3>
+									<ul class="footer-links">
+										<li><a href="{% url 'post:aboutUs' %}">About Us</a></li>
+{#										<li><a href="#">Join Us</a></li>#}
+										<li><a href="{% url 'post:contact' %}">Contacts</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="footer-widget">
+									<h3 class="footer-title">Catagories</h3>
+									<ul class="footer-links">
+                                        {% for catBase in catsBase %}
+										    <li><a href="{% url 'post:category' catBase.id %}">{{ catBase.name }}</a></li>
+                                        {% endfor %}
+{#										<li><a href="category.html">JavaScript</a></li>#}
+{#										<li><a href="category.html">Css</a></li>#}
+{#										<li><a href="category.html">Jquery</a></li>#}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="footer-widget">
+							<h3 class="footer-title">Social Media</h3>
+{#							<div class="footer-newsletter">#}
+{#								<form>#}
+{#									<input class="input" type="email" name="newsletter" placeholder="Enter your email">#}
+{#									<button class="newsletter-btn"><i class="fa fa-paper-plane"></i></button>#}
+{#								</form>#}
+{#							</div>#}
+							<ul class="footer-social">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</footer>
+		<!-- /Footer -->
+
+<!-- jQuery Plugins -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+
+
+     <script type="text/javascript">
+        function displayNav(event) {
+            event.preventDefault();
+            document.getElementById('nav-aside').style.display = "block";
+
+
+        }
+         function unDisplay(event) {
+            event.preventDefault();
+
+             document.getElementById('nav-aside').style.display = "none";
+
+
+        }
+
+    </script>
+</body>
+</html>

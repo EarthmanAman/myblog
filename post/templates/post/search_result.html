@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>search</title>
+{% endblock %}
+
+{% block content %}
+   		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="section-title">
+									<h2>{{ title }}</h2>
+								</div>
+							</div>
+							<!-- post -->
+                            {% for post in posts %}
+							<div class="col-md-12">
+								<div class="post post-row">
+                                    {% if post.pic %}
+									    <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{{ post.pic.url }}" alt=""></a>
+									{% else %}
+                                        <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{% static '/img/post-4.jpg' %}" alt=""></a>
+                                    {% endif %}
+                                    <div class="post-body">
+										<div class="post-meta">
+											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
+											<span class="post-date">{{ post.date }}</span>
+										</div>
+										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
+									</div>
+								</div>
+							</div>
+                            {% endfor %}
+
+
+                              <div class="row">
+                             <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+                                <div class="pagination" align="center">
+                                    <span class="step-links">
+                                        {% if posts.has_previous %}
+                                            {% if query %}
+                                                <a href="?page=1 q={{ query }}" >&laquo; first</a>
+                                                <a href="?page={{ posts.previous_page_number }}&q={{ query }}" class="" style="color: blue;">previous</a>
+                                            {% else %}
+                                                <a href="?page=1" >&laquo; first</a>
+                                                <a href="?page={{ posts.previous_page_number }}" class="" style="color: blue;">previous</a>
+                                            {% endif %}
+                                        {% endif %}
+
+                                        <span class="current" style="color: brown;">
+                                            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                                        </span>
+
+                                        {% if posts.has_next %}
+                                            {% if query %}
+                                                <a href="?page={{ posts.next_page_number }}&q={{ query }}" style="color: blue;">next</a>
+                                                <a href="?page={{ posts.paginator.num_pages }}&q={{ query }}">last &raquo;</a>
+                                            {% else %}
+                                                <a href="?page={{ posts.next_page_number }}" style="color: blue;">next</a>
+                                                <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                             </div>
+                        </div>
+							<!-- /post -->
+
+{#							<!-- post -->#}
+{#							<div class="col-md-12">#}
+{#								<div class="post post-row">#}
+{#									<a class="post-img" href=""><img src="{% static '/img/post-6.jpg' %}" alt=""></a>#}
+{#									<div class="post-body">#}
+{#										<div class="post-meta">#}
+{#											<a class="post-category cat-2" href="">JavaScript</a>#}
+{#											<span class="post-date">March 27, 2018</span>#}
+{#										</div>#}
+{#										<h3 class="post-title"><a href="">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>#}
+{#										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<!-- /post -->#}
+{##}
+{#							<!-- post -->#}
+{#							<div class="col-md-12">#}
+{#								<div class="post post-row">#}
+{#									<a class="post-img" href=""><img src="{% static '/img/post-1.jpg' %}" alt=""></a>#}
+{#									<div class="post-body">#}
+{#										<div class="post-meta">#}
+{#											<a class="post-category cat-4" href="">Css</a>#}
+{#											<span class="post-date">March 27, 2018</span>#}
+{#										</div>#}
+{#										<h3 class="post-title"><a href="">CSS Float: A Tutorial</a></h3>#}
+{#										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<!-- /post -->#}
+{##}
+{#							<!-- post -->#}
+{#							<div class="col-md-12">#}
+{#								<div class="post post-row">#}
+{#									<a class="post-img" href=""><img src="{% static '/img/post-2.jpg' %}" alt=""></a>#}
+{#									<div class="post-body">#}
+{#										<div class="post-meta">#}
+{#											<a class="post-category cat-3" href="">Jquery</a>#}
+{#											<span class="post-date">March 27, 2018</span>#}
+{#										</div>#}
+{#										<h3 class="post-title"><a href="">Ask HN: Does Anybody Still Use JQuery?</a></h3>#}
+{#										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<!-- /post -->#}
+
+{#							<div class="col-md-12">#}
+{#								<div class="section-row">#}
+{#									<a href="{% url 'post:popular' %}"><button class="primary-button center-block">Load More</button></a>#}
+{#								</div>#}
+{#							</div>#}
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<!-- ad -->
+						<div class="aside-widget text-center">
+							<a href="#" style="display: inline-block;margin: auto;">
+								<img class="img-responsive" src="{% static '/img/ad-1.jpg' %}" alt="">
+							</a>
+						</div>
+						<!-- /ad -->
+
+						<!-- catagories -->
+						<div class="aside-widget">
+							<div class="section-title">
+								<h2>Catagories</h2>
+							</div>
+							<div class="category-widget">
+								<ul>
+                                    {% for category in categories %}
+                                        {% for sub in category.subcategory_set.all %}
+									        <li><a href="{% url 'post:category' sub.id %}" class="cat-1">{{ sub.name }}<span>{{ sub.post_set.count }}</span></a></li>
+                                        {% endfor %}
+                                    {% endfor %}
+{#									<li><a href="#" class="cat-2">JavaScript<span>74</span></a></li>#}
+{#									<li><a href="#" class="cat-4">JQuery<span>41</span></a></li>#}
+{#									<li><a href="#" class="cat-3">CSS<span>35</span></a></li>#}
+								</ul>
+							</div>
+						</div>
+						<!-- /catagories -->
+
+						<!-- tags -->
+						<div class="aside-widget">
+							<div class="tags-widget">
+								<ul>
+                                    {% for cat in categories %}
+                                        {% for sub in cat.subcategory_set.all %}
+                                            <li><a href="{% url 'post:category' sub.id %}">{{ sub.name }}</a></li>
+                                        {% endfor %}
+                                    {% endfor %}
+
+{#									<li><a href="#">CSS</a></li>#}
+{#									<li><a href="#">Tutorial</a></li>#}
+{#									<li><a href="#">Backend</a></li>#}
+{#									<li><a href="#">JQuery</a></li>#}
+{#									<li><a href="#">Design</a></li>#}
+{#									<li><a href="#">Development</a></li>#}
+{#									<li><a href="#">JavaScript</a></li>#}
+{#									<li><a href="#">Website</a></li>#}
+								</ul>
+							</div>
+						</div>
+						<!-- /tags -->
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /section -->
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Blog::delete_comment</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" align="center">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                <h2>Confirm Delete</h2>
+                <p>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirm</button>
+                    <a href="{% url 'post:read' comment.post.id %}"><button class="btn btn-primary" type="button">Cancel</button></a>
+                </form>
+                <span>
+                <p>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

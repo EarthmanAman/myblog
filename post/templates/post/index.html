@@ -1,0 +1,382 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>myBlog::index</title>
+{% endblock %}
+
+{% block content %}
+   <!-- section -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- post -->
+                    {% for post in mostRead %}
+					<div class="col-md-6">
+						<div class="post post-thumb">
+                            {% if post.pic %}
+							    <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
+                            {% else %}
+                                <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-1.jpg' %}" alt=""></a>
+                            {% endif %}
+							<div class="post-body">
+								<div class="post-meta">
+									<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
+									<span class="post-date">{{ post.date }}</span>
+								</div>
+								<h5 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h5>
+							</div>
+						</div>
+					</div>
+                    {% endfor %}
+					<!-- /post -->
+
+{#					<!-- post -->#}
+{#					<div class="col-md-6">#}
+{#						<div class="post post-thumb">#}
+{#							<a class="post-img" href=""><img src="{% static '/img/post-2.jpg' %}" alt=""></a>#}
+{#							<div class="post-body">#}
+{#								<div class="post-meta">#}
+{#									<a class="post-category cat-3" href="">Jquery</a>#}
+{#									<span class="post-date">March 27, 2018</span>#}
+{#								</div>#}
+{#								<h3 class="post-title"><a href="">Ask HN: Does Anybody Still Use JQuery?</a></h3>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<!-- /post -->#}
+				</div>
+				<!-- /row -->
+
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2>Recent Posts</h2>
+						</div>
+					</div>
+
+					<!-- post -->
+                    {% for post in recent %}
+					<div class="col-md-4">
+						<div class="post">
+                            {% if post.pic %}
+							    <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
+                            {% else %}
+                                <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-3.jpg' %}" alt=""></a>
+                            {% endif %}
+							<div class="post-body">
+								<div class="post-meta">
+									<a class="post-category cat-1" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
+									<span class="post-date">{{ post.date }}</span>
+								</div>
+								<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+							</div>
+						</div>
+					</div>
+                    {% endfor %}
+    		<!-- section -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="section-title">
+									<h2>Most Read</h2>
+								</div>
+							</div>
+							<!-- post -->
+                            {% for post in most_read %}
+							<div class="col-md-12">
+								<div class="post post-row">
+                                    {% if post.pic %}
+									    <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{{ post.pic.url }}" alt=""></a>
+									{% else %}
+                                        <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{% static '/img/post-4.jpg' %}" alt=""></a>
+                                    {% endif %}
+                                    <div class="post-body">
+										<div class="post-meta">
+											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
+											<span class="post-date">{{ post.date }}</span>
+										</div>
+										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
+									</div>
+								</div>
+							</div>
+                            {% endfor %}
+							<!-- /post -->
+
+{#							<!-- post -->#}
+{#							<div class="col-md-12">#}
+{#								<div class="post post-row">#}
+{#									<a class="post-img" href=""><img src="{% static '/img/post-6.jpg' %}" alt=""></a>#}
+{#									<div class="post-body">#}
+{#										<div class="post-meta">#}
+{#											<a class="post-category cat-2" href="">JavaScript</a>#}
+{#											<span class="post-date">March 27, 2018</span>#}
+{#										</div>#}
+{#										<h3 class="post-title"><a href="">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>#}
+{#										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<!-- /post -->#}
+{##}
+{#							<!-- post -->#}
+{#							<div class="col-md-12">#}
+{#								<div class="post post-row">#}
+{#									<a class="post-img" href=""><img src="{% static '/img/post-1.jpg' %}" alt=""></a>#}
+{#									<div class="post-body">#}
+{#										<div class="post-meta">#}
+{#											<a class="post-category cat-4" href="">Css</a>#}
+{#											<span class="post-date">March 27, 2018</span>#}
+{#										</div>#}
+{#										<h3 class="post-title"><a href="">CSS Float: A Tutorial</a></h3>#}
+{#										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<!-- /post -->#}
+{##}
+{#							<!-- post -->#}
+{#							<div class="col-md-12">#}
+{#								<div class="post post-row">#}
+{#									<a class="post-img" href=""><img src="{% static '/img/post-2.jpg' %}" alt=""></a>#}
+{#									<div class="post-body">#}
+{#										<div class="post-meta">#}
+{#											<a class="post-category cat-3" href="">Jquery</a>#}
+{#											<span class="post-date">March 27, 2018</span>#}
+{#										</div>#}
+{#										<h3 class="post-title"><a href="">Ask HN: Does Anybody Still Use JQuery?</a></h3>#}
+{#										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<!-- /post -->#}
+
+							<div class="col-md-12">
+								<div class="section-row">
+									<a href="{% url 'post:popular' %}"><button class="primary-button center-block">Load More</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<!-- ad -->
+						<div class="aside-widget text-center">
+							<a href="#" style="display: inline-block;margin: auto;">
+								<img class="img-responsive" src="{% static '/img/ad-1.jpg' %}" alt="">
+							</a>
+						</div>
+						<!-- /ad -->
+
+						<!-- catagories -->
+						<div class="aside-widget">
+							<div class="section-title">
+								<h2>Catagories</h2>
+							</div>
+							<div class="category-widget">
+								<ul>
+                                    {% for category in categories %}
+                                        {% for sub in category.subcategory_set.all %}
+									        <li><a href="{% url 'post:category' sub.id %}" class="cat-1">{{ sub.name }}<span>{{ sub.post_set.count }}</span></a></li>
+                                        {% endfor %}
+                                    {% endfor %}
+{#									<li><a href="#" class="cat-2">JavaScript<span>74</span></a></li>#}
+{#									<li><a href="#" class="cat-4">JQuery<span>41</span></a></li>#}
+{#									<li><a href="#" class="cat-3">CSS<span>35</span></a></li>#}
+								</ul>
+							</div>
+						</div>
+						<!-- /catagories -->
+
+						<!-- tags -->
+						<div class="aside-widget">
+							<div class="tags-widget">
+								<ul>
+                                    {% for cat in categories %}
+                                        {% for sub in cat.subcategory_set.all %}
+                                            <li><a href="{% url 'post:category' sub.id %}">{{ sub.name }}</a></li>
+                                        {% endfor %}
+                                    {% endfor %}
+
+{#									<li><a href="#">CSS</a></li>#}
+{#									<li><a href="#">Tutorial</a></li>#}
+{#									<li><a href="#">Backend</a></li>#}
+{#									<li><a href="#">JQuery</a></li>#}
+{#									<li><a href="#">Design</a></li>#}
+{#									<li><a href="#">Development</a></li>#}
+{#									<li><a href="#">JavaScript</a></li>#}
+{#									<li><a href="#">Website</a></li>#}
+								</ul>
+							</div>
+						</div>
+						<!-- /tags -->
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /section -->
+
+{#					<div class="col-md-4">#}
+{#						<!-- post widget -->#}
+{#						<div class="aside-widget">#}
+{#							<div class="section-title">#}
+{#								<h2>Most Read</h2>#}
+{#							</div>#}
+{##}
+{#							<div class="post post-widget">#}
+{#								<a class="post-img" href=""><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>#}
+{#								<div class="post-body">#}
+{#									<h3 class="post-title"><a href="">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="post post-widget">#}
+{#								<a class="post-img" href=""><img src="{% static '/img/widget-2.jpg' %}" alt=""></a>#}
+{#								<div class="post-body">#}
+{#									<h3 class="post-title"><a href="">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="post post-widget">#}
+{#								<a class="post-img" href=""><img src="{% static '/img/widget-3.jpg' %}" alt=""></a>#}
+{#								<div class="post-body">#}
+{#									<h3 class="post-title"><a href="">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="post post-widget">#}
+{#								<a class="post-img" href=""><img src="{% static '/img/widget-4.jpg' %}" alt=""></a>#}
+{#								<div class="post-body">#}
+{#									<h3 class="post-title"><a href="">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<!-- /post widget -->#}
+{##}
+{#						<!-- post widget -->#}
+{#						<div class="aside-widget">#}
+{#							<div class="section-title">#}
+{#								<h2>Featured Posts</h2>#}
+{#							</div>#}
+{#							<div class="post post-thumb">#}
+{#								<a class="post-img" href=""><img src="{% static '/img/post-2.jpg' %}" alt=""></a>#}
+{#								<div class="post-body">#}
+{#									<div class="post-meta">#}
+{#										<a class="post-category cat-3" href="">Jquery</a>#}
+{#										<span class="post-date">March 27, 2018</span>#}
+{#									</div>#}
+{#									<h3 class="post-title"><a href="">Ask HN: Does Anybody Still Use JQuery?</a></h3>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="post post-thumb">#}
+{#								<a class="post-img" href=""><img src="{% static '/img/post-1.jpg' %}" alt=""></a>#}
+{#								<div class="post-body">#}
+{#									<div class="post-meta">#}
+{#										<a class="post-category cat-2" href="">JavaScript</a>#}
+{#										<span class="post-date">March 27, 2018</span>#}
+{#									</div>#}
+{#									<h3 class="post-title"><a href="">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<!-- /post widget -->#}
+{##}
+{#						<!-- ad -->#}
+{#						<div class="aside-widget text-center">#}
+{#							<a href="#" style="display: inline-block;margin: auto;">#}
+{#								<img class="img-responsive" src="{% static '/img/ad-1.jpg' %}" alt="">#}
+{#							</a>#}
+{#						</div>#}
+{#						<!-- /ad -->#}
+{#					</div>#}
+{#				</div>#}
+{#				<!-- /row -->#}
+{#			</div>#}
+{#			<!-- /container -->#}
+{#		</div>#}
+{#		<!-- /section -->#}
+
+		<!-- section -->
+		<div class="section section-grey">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title text-center">
+							<h2>Featured Posts</h2>
+						</div>
+					</div>
+
+					<!-- post -->
+                    {% for feature in featured_posts %}
+                        <div class="col-md-4">
+                            <div class="post">
+                                {% if feature.pic %}
+                                    <a class="post-img" href="{% url 'post:read' feature.id %}"><img style="width: 100%; height:300px;" src="{{ feature.pic.url }}" alt=""></a>
+                                {% else %}
+                                     <a class="post-img" href="{% url 'post:read' feature.id %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-4.jpg' %}" alt=""></a>
+                                {% endif %}
+                                <div class="post-body">
+                                    <div class="post-meta">
+                                        <a class="post-category cat-2" href="">{{ feature.subCategory.name }}</a>
+                                        <span class="post-date">{{ feature.date }}</span>
+                                    </div>
+                                    <h3 class="post-title"><a href="{% url 'post:read' feature.id %}">{{ feature.title }}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+					<!-- /post -->
+
+{#					<!-- post -->#}
+{#					<div class="col-md-4">#}
+{#						<div class="post">#}
+{#							<a class="post-img" href=""><img src="{% static '/img/post-5.jpg' %}" alt=""></a>#}
+{#							<div class="post-body">#}
+{#								<div class="post-meta">#}
+{#									<a class="post-category cat-3" href="">Jquery</a>#}
+{#									<span class="post-date">March 27, 2018</span>#}
+{#								</div>#}
+{#								<h3 class="post-title"><a href="">Ask HN: Does Anybody Still Use JQuery?</a></h3>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<!-- /post -->#}
+{##}
+{#					<!-- post -->#}
+{#					<div class="col-md-4">#}
+{#						<div class="post">#}
+{#							<a class="post-img" href=""><img src="{% static '/img/post-3.jpg' %}" alt=""></a>#}
+{#							<div class="post-body">#}
+{#								<div class="post-meta">#}
+{#									<a class="post-category cat-1" href="">Web Design</a>#}
+{#									<span class="post-date">March 27, 2018</span>#}
+{#								</div>#}
+{#								<h3 class="post-title"><a href="">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<!-- /post -->#}
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /section -->
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
