@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'comment',
-
     'ckeditor',
     'post',
 ]
@@ -86,8 +85,8 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blogdb',
-        'USER': 'blog_admin',
+        'NAME': 'myblog',
+        'USER': 'myblog_admin',
         'PASSWORD': 'earthman@db',
         'HOST': 'localhost',
         'PORT': '',
