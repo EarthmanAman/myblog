@@ -25,7 +25,7 @@ SECRET_KEY = 'c=*2nzr7*@+x3t6-k0%x1gq0@9sugdf&o5juoz(7nu+241#y$*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blogtext.herokuapp.com']
+ALLOWED_HOSTS = ['165.22.250.127']
 
 
 # Application definition
@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'blogdb',
+        'USER': 'blog_admin',
+        'PASSWORD': 'earthman@db',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -132,7 +136,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "live_static_files", 'static_root')
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
