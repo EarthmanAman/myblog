@@ -31,7 +31,7 @@
 											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 											<span class="post-date">{{ post.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe}}</a></h3>
 										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
 									</div>
 								</div>

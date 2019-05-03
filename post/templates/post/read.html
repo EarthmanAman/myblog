@@ -23,7 +23,7 @@
 								<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 								<span class="post-date">{{ post.date }}</span>
 							</div>
-							<h1>{{ post.title }}</h1>
+							<h1>{{ post.title | safe}}</h1>
 						</div>
 					</div>
 				</div>
@@ -315,7 +315,7 @@
                                     <a class="post-img" href="{% url 'post:read' most.id %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
                                 {% endif %}
                                 <div class="post-body">
-									<h3 class="post-title"><a href="{% url 'post:read' most.id %}">{{ most.title }}</a></h3>
+									<h3 class="post-title"><a href="{% url 'post:read' most.id %}">{{ most.title | safe }}</a></h3>
 								</div>
 							</div>
                         {% endfor %}
@@ -359,7 +359,7 @@
                                             <a class="post-category cat-3" href="{% url 'post:category' feature.subCategory.id %}">{{ feature.subCategory.name}}</a>
                                             <span class="post-date">{{ feature.date }}</span>
                                         </div>
-                                        <h3 class="post-title"><a href="{% url 'post:read' feature.id %}">{{ feature.title }}</a></h3>
+                                        <h3 class="post-title"><a href="{% url 'post:read' feature.id %}">{{ feature.title | safe}}</a></h3>
                                     </div>
                                 </div>
                             {% endfor %}

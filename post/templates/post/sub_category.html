@@ -47,7 +47,7 @@
 											<a class="post-category cat-2" href="{% url 'post:category' first.subCategory.id %}">{{ first.subCategory.name }}</a>
 											<span class="post-date">{{ first.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' first.id %}">{{ first.title }}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' first.id %}">{{ first.title | safe}}</a></h3>
 									</div>
 								</div>
 							</div>
@@ -68,7 +68,7 @@
 											<span class="post-date">{{ post.date }}</span>
 										</div>
 										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">
-                                           {{ post.title }}</a></h3>
+                                           {{ post.title | safe}}</a></h3>
 									</div>
 								</div>
 							</div>
@@ -114,7 +114,7 @@
 											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 											<span class="post-date">{{ post.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe}}</a></h3>
 										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
 									</div>
 								</div>
@@ -225,7 +225,7 @@
                                         <a class="post-img" href="{% url 'post:read' postIn.id %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
                                     {% endif %}
                                     <div class="post-body">
-                                        <h3 class="post-title"><a href="{% url 'post:read' postIn.id %}">{{ postIn.title }}</a></h3>
+                                        <h3 class="post-title"><a href="{% url 'post:read' postIn.id %}">{{ postIn.title | safe}}</a></h3>
                                     </div>
                                 </div>
                             {% endfor %}

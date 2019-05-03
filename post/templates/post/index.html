@@ -16,7 +16,7 @@
 					<div class="col-md-6">
 						<div class="post post-thumb">
                             {% if post.pic %}
-							    <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{{ post.pic }}" alt=""></a>
+							    <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
                             {% else %}
                                 <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-1.jpg' %}" alt=""></a>
                             {% endif %}
@@ -25,7 +25,7 @@
 									<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 									<span class="post-date">{{ post.date }}</span>
 								</div>
-								<h5 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h5>
+								<h5 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe}}</a></h5>
 							</div>
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 									<a class="post-category cat-1" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 									<span class="post-date">{{ post.date }}</span>
 								</div>
-								<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+								<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title|safe }}</a></h3>
 							</div>
 						</div>
 					</div>
@@ -103,7 +103,7 @@
 											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 											<span class="post-date">{{ post.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title }}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe }}</a></h3>
 										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
 									</div>
 								</div>
@@ -333,7 +333,7 @@
                                         <a class="post-category cat-2" href="">{{ feature.subCategory.name }}</a>
                                         <span class="post-date">{{ feature.date }}</span>
                                     </div>
-                                    <h3 class="post-title"><a href="{% url 'post:read' feature.id %}">{{ feature.title }}</a></h3>
+                                    <h3 class="post-title"><a href="{% url 'post:read' feature.id %}">{{ feature.title | safe}}</a></h3>
                                 </div>
                             </div>
                         </div>
