@@ -25,7 +25,7 @@ SECRET_KEY = 'c=*2nzr7*@+x3t6-k0%x1gq0@9sugdf&o5juoz(7nu+241#y$*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['178.128.126.132', 'howintech.net', 'howintech.com']
+ALLOWED_HOSTS = ['178.128.126.132', 'howintech.net', 'howintech.com', 'www.howintech.com', 'www.howtotech.net']
 
 
 # Application definition
