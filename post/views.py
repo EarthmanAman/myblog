@@ -52,12 +52,12 @@ def index(request):
     return render(request, template_name, context)
 
 
-def read(request, post_id):
+def read(request, slug):
 
     template_name = "./post/read.html"
 
     """Saving views"""
-    post = Post.objects.get(pk=post_id)
+    post = Post.objects.get(pk=slug)
     post.views += 1
     post.save()
 

@@ -22,16 +22,16 @@
 							<div class="col-md-12">
 								<div class="post post-row">
                                     {% if post.pic %}
-									    <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{{ post.pic.url }}" alt=""></a>
+									    <a class="post-img" href="{% url 'post:read' post.slug %}"><img src="{{ post.pic.url }}" alt=""></a>
 									{% else %}
-                                        <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{% static '/img/post-4.jpg' %}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' post.slug %}"><img src="{% static '/img/post-4.jpg' %}" alt=""></a>
                                     {% endif %}
                                     <div class="post-body">
 										<div class="post-meta">
 											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 											<span class="post-date">{{ post.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe}}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' post.slug %}">{{ post.title | safe}}</a></h3>
 										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
 									</div>
 								</div>

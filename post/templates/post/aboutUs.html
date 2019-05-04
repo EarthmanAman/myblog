@@ -73,9 +73,9 @@
 							</div>
                             {% for post in most_read %}
                                 <div class="post post-widget">
-                                    <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
+                                    <a class="post-img" href="{% url 'post:read' post.slug %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
                                     <div class="post-body">
-                                        <h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe }}</a></h3>
+                                        <h3 class="post-title"><a href="{% url 'post:read' post.slug %}">{{ post.title | safe }}</a></h3>
                                     </div>
                                 </div>
                             {% endfor %}

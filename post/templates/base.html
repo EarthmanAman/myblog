@@ -107,12 +107,12 @@
                         {% for recent_post in recent %}
                             <div class="post post-widget">
                                 {% if recent_post.pic %}
-                                    <a class="post-img" href="{% url 'post:read' recent_post.id %}"><img src="{{ recent_post.pic.url }}" alt=""></a>
+                                    <a class="post-img" href="{% url 'post:read' recent_post.slug %}"><img src="{{ recent_post.pic.url }}" alt=""></a>
                                 {% else %}
-                                    <a class="post-img" href="{% url 'post:read' recent_post.id %}"><img src="{% static '/img/widget-2.jpg' %}" alt=""></a>
+                                    <a class="post-img" href="{% url 'post:read' recent_post.slug %}"><img src="{% static '/img/widget-2.jpg' %}" alt=""></a>
                                 {% endif %}
                                 <div class="post-body">
-                                    <h3 class="post-title"><a href="{% url 'post:read' recent_post.id %}">{{ recent_post.title }}</a></h3>
+                                    <h3 class="post-title"><a href="{% url 'post:read' recent_post.slug %}">{{ recent_post.title | safe}}</a></h3>
                                 </div>
                             </div>
                         {% endfor %}

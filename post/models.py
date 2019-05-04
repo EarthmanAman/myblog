@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
+from django.db.models.signals import pre_save
 from django.utils.safestring import mark_safe
 from ckeditor.fields import RichTextField
 
@@ -51,6 +53,8 @@ class Post(models.Model):
     featured = models.BooleanField(default=False)
     lead = models.BooleanField(default=False)
 
+    slug = models.SlugField(blank=True, null=True)
+
     def __str__(self):
         return str(self.subCategory.category.name) + " " + str(self.subCategory.name) + " " + str(self.title)
     
@@ -65,3 +69,22 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email + " - " + self.subject
+
+
+def create_slug(instance, new_slug=None):
+    slug = slugify(instance.title)
+    if new_slug is not None:
+        slug = new_slug
+    qs = Post.objects.filter(slug=slug).order_by("-id")
+    exists = qs.exists()
+    if exists:
+        new_slug = "%s-%s" %(slug, qs.first().id)
+        return create_slug(instance, new_slug=new_slug)
+
+
+def pre_save_post_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = create_slug(instance)
+
+
+pre_save.connect(pre_save_post_receiver, sender=Post)

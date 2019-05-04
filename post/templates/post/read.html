@@ -310,12 +310,12 @@
                         {% for most in mostRead %}
 							<div class="post post-widget">
                                 {% if most.pic %}
-								    <a class="post-img" href="{% url 'post:read' most.id %}"><img src="{{ most.pic.url }}" alt=""></a>
+								    <a class="post-img" href="{% url 'post:read' most.slug %}"><img src="{{ most.pic.url }}" alt=""></a>
 								{% else %}
-                                    <a class="post-img" href="{% url 'post:read' most.id %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
+                                    <a class="post-img" href="{% url 'post:read' most.slug %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
                                 {% endif %}
                                 <div class="post-body">
-									<h3 class="post-title"><a href="{% url 'post:read' most.id %}">{{ most.title | safe }}</a></h3>
+									<h3 class="post-title"><a href="{% url 'post:read' most.slug %}">{{ most.title | safe }}</a></h3>
 								</div>
 							</div>
                         {% endfor %}
@@ -350,16 +350,16 @@
                             {% for feature in featured_posts %}
                                 <div class="post post-thumb">
                                     {% if feature.pic %}
-                                        <a class="post-img" href="{% url 'post:read' feature.id %}"><img src="{{ feature.pic.url }}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' feature.slug %}"><img src="{{ feature.pic.url }}" alt=""></a>
                                     {% else %}
-                                        <a class="post-img" href="{% url 'post:read' feature.id %}"><img src="{% static '/img/post-2.jpg' %}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' feature.slug %}"><img src="{% static '/img/post-2.jpg' %}" alt=""></a>
                                     {% endif %}
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-3" href="{% url 'post:category' feature.subCategory.id %}">{{ feature.subCategory.name}}</a>
                                             <span class="post-date">{{ feature.date }}</span>
                                         </div>
-                                        <h3 class="post-title"><a href="{% url 'post:read' feature.id %}">{{ feature.title | safe}}</a></h3>
+                                        <h3 class="post-title"><a href="{% url 'post:read' feature.slug %}">{{ feature.title | safe}}</a></h3>
                                     </div>
                                 </div>
                             {% endfor %}

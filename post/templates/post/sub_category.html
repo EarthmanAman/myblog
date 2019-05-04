@@ -38,16 +38,16 @@
 							<div class="col-md-12">
 								<div class="post post-thumb">
                                     {% if first.pic %}
-									    <a class="post-img" href="{% url 'post:read' first.id %}"><img src="{{ first.pic.url }}" alt=""></a>
+									    <a class="post-img" href="{% url 'post:read' first.slug %}"><img src="{{ first.pic.url }}" alt=""></a>
 									{% else %}
-                                        <a class="post-img" href="{% url 'post:read' first.id %}"><img src="{% static '/img/post-1.jpg' %}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' first.slug %}"><img src="{% static '/img/post-1.jpg' %}" alt=""></a>
                                     {% endif %}
                                     <div class="post-body">
 										<div class="post-meta">
 											<a class="post-category cat-2" href="{% url 'post:category' first.subCategory.id %}">{{ first.subCategory.name }}</a>
 											<span class="post-date">{{ first.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' first.id %}">{{ first.title | safe}}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' first.slug %}">{{ first.title | safe}}</a></h3>
 									</div>
 								</div>
 							</div>
@@ -58,16 +58,16 @@
 							<div class="col-md-6">
 								<div class="post">
                                     {% if post.pic %}
-									    <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
+									    <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
 									{% else %}
-                                        <a class="post-img" href="{% url 'post:read' post.id %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-4.jpg' %}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-4.jpg' %}" alt=""></a>
                                     {% endif %}
                                     <div class="post-body">
 										<div class="post-meta">
 											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 											<span class="post-date">{{ post.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">
+										<h3 class="post-title"><a href="{% url 'post:read' post.slug %}">
                                            {{ post.title | safe}}</a></h3>
 									</div>
 								</div>
@@ -105,16 +105,16 @@
 							<div class="col-md-12">
 								<div class="post post-row">
                                     {% if post.pic %}
-									    <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{{ post.pic.url }}" alt=""></a>
+									    <a class="post-img" href="{% url 'post:read' post.slug %}"><img src="{{ post.pic.url }}" alt=""></a>
 									{% else %}
-                                        <a class="post-img" href="{% url 'post:read' post.id %}"><img src="{% static '/img/post-2.jpg' %}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' post.slug %}"><img src="{% static '/img/post-2.jpg' %}" alt=""></a>
 									{% endif %}
                                     <div class="post-body">
 										<div class="post-meta">
 											<a class="post-category cat-2" href="{% url 'post:category' post.subCategory.id %}">{{ post.subCategory.name }}</a>
 											<span class="post-date">{{ post.date }}</span>
 										</div>
-										<h3 class="post-title"><a href="{% url 'post:read' post.id %}">{{ post.title | safe}}</a></h3>
+										<h3 class="post-title"><a href="{% url 'post:read' post.slug %}">{{ post.title | safe}}</a></h3>
 										<p>{{ post.content |safe| truncatewords_html:20 }}</p>
 									</div>
 								</div>
@@ -220,12 +220,12 @@
                             {% for postIn in most_view %}
                                 <div class="post post-widget">
                                     {% if postIn.pic %}
-                                        <a class="post-img" href="{% url 'post:read' postIn.id %}"><img src="{{ postIn.pic.url }}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' postIn.slug %}"><img src="{{ postIn.pic.url }}" alt=""></a>
                                     {% else %}
-                                        <a class="post-img" href="{% url 'post:read' postIn.id %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
+                                        <a class="post-img" href="{% url 'post:read' postIn.slug %}"><img src="{% static '/img/widget-1.jpg' %}" alt=""></a>
                                     {% endif %}
                                     <div class="post-body">
-                                        <h3 class="post-title"><a href="{% url 'post:read' postIn.id %}">{{ postIn.title | safe}}</a></h3>
+                                        <h3 class="post-title"><a href="{% url 'post:read' postIn.slug %}">{{ postIn.title | safe}}</a></h3>
                                     </div>
                                 </div>
                             {% endfor %}
