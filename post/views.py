@@ -57,7 +57,7 @@ def read(request, slug):
     template_name = "./post/read.html"
 
     """Saving views"""
-    post = Post.objects.get(pk=slug)
+    post = Post.objects.get(slug=slug)
     post.views += 1
     post.save()
 
