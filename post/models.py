@@ -56,7 +56,7 @@ class Post(models.Model):
     lead = models.BooleanField(default=False)
 
     slug = models.SlugField(blank=True, null=True)
-    sites = models.ManyToManyField(Site)
+    sites = models.ManyToManyField(Site, default=1)
 
     def __str__(self):
         return str(self.subCategory.category.name) + " " + str(self.subCategory.name) + " " + str(self.title)
