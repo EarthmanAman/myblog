@@ -58,9 +58,10 @@ def read(request, slug):
     template_name = "./post/read.html"
 
     """Saving views"""
-    try:
-        post = Post.objects.get(slug=slug, sites__id=get_current_site(request).id)
-    except:
+    current_site = get_current_site(request)
+    if current_site.domain == "howintech.com" or current_site.domain == "www.howintech.com" or current_site.domain == "howintech.net" or current_site.domain == "www.howintech.net":
+        post = Post.objects.get(slug=slug)
+    else:
         post = Post.objects.get(slug=slug)
     post.views += 1
     post.save()
