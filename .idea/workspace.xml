@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b18ceba-aff7-45eb-9a5c-34e7a8fc81d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/post/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
+            <state relative-caret-position="315">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -99,7 +99,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/post/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
@@ -145,10 +145,10 @@
         <option value="$PROJECT_DIR$/post/templates/post/popular.html" />
         <option value="$PROJECT_DIR$/post/templates/post/search_result.html" />
         <option value="$PROJECT_DIR$/post/sitemaps.py" />
-        <option value="$PROJECT_DIR$/blog/settings.py" />
         <option value="$PROJECT_DIR$/blog/urls.py" />
         <option value="$PROJECT_DIR$/post/models.py" />
         <option value="$PROJECT_DIR$/post/views.py" />
+        <option value="$PROJECT_DIR$/blog/settings.py" />
       </list>
     </option>
   </component>
@@ -244,12 +244,12 @@
       <updated>1556821206976</updated>
       <workItem from="1556821209749" duration="2423000" />
       <workItem from="1556871670385" duration="5871000" />
-      <workItem from="1556901098102" duration="8795000" />
+      <workItem from="1556901098102" duration="9124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17089000" />
+    <option name="totallyTimeSpent" value="17418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="768" extended-state="6" />
@@ -376,13 +376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -407,6 +400,13 @@
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
         </state>
       </provider>
     </entry>
