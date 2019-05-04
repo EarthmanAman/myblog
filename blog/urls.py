@@ -21,10 +21,11 @@ from django.conf import settings
 
 from django.contrib.sitemaps.views import sitemap
 
-from post.sitemaps import PostSitemap
+from post.sitemaps import StaticViewSitemap,PostSitemap
 
 sitemaps = {
-    'post': PostSitemap
+    'post': PostSitemap,
+    'static': StaticViewSitemap
 }
 
 urlpatterns = [
