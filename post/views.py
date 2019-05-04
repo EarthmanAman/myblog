@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.core.paginator import Paginator
 
@@ -57,7 +58,10 @@ def read(request, slug):
     template_name = "./post/read.html"
 
     """Saving views"""
-    post = Post.objects.get(slug=slug)
+    try:
+        post = Post.objects.get(slug=slug, sites__id=get_current_site(request).id)
+    except:
+        post = Post.objects.get(slug=slug)
     post.views += 1
     post.save()
 

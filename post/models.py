@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.sites.models import Site
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
@@ -55,6 +56,7 @@ class Post(models.Model):
     lead = models.BooleanField(default=False)
 
     slug = models.SlugField(blank=True, null=True)
+    sites = models.ManyToManyField(Site)
 
     def __str__(self):
         return str(self.subCategory.category.name) + " " + str(self.subCategory.name) + " " + str(self.title)
