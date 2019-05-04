@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block meta %}
+    <meta name="description" content="{{ post.description }}">
+{% endblock %}
 {% block title %}
-    <title>post</title>
+    <title>{{ post.subCategory.name }}-{{ post.title }}</title>
 {% endblock %}
 
 

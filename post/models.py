@@ -1,10 +1,11 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from django.utils.safestring import mark_safe
 from ckeditor.fields import RichTextField
-
+from django.contrib.sitemaps import ping_google
 from accounts.models import Author
 
 
@@ -57,7 +58,16 @@ class Post(models.Model):
 
     def __str__(self):
         return str(self.subCategory.category.name) + " " + str(self.subCategory.name) + " " + str(self.title)
-    
+
+    def get_absolute_url(self):
+        return reverse("post:read", kwargs={'slug': self.slug})
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        try:
+            ping_google()
+        except Exception:
+            pass
     # class Meta:
     #     ordering = ["-date"]
 
