@@ -11,7 +11,7 @@ class PostSitemap(Sitemap):
 
 class StaticViewSitemap(Sitemap):
     def items(self):
-        return ['', 'about', 'contact']
+        return ['index', 'aboutUs', 'contact']
 
     def location(self, obj):
-        return reverse("post:%s" %obj)
+        return reverse("post:%s" % obj)
