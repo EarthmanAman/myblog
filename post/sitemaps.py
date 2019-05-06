@@ -14,4 +14,4 @@ class StaticViewSitemap(Sitemap):
         return ['', 'about', 'contact']
 
     def location(self, obj):
-        return reverse(obj)
+        return reverse("post:%s" %obj)
