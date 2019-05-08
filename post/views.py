@@ -98,14 +98,17 @@ def edit_comment(request, comment_id):
             message = request.POST.get("message")
             comment.content = message
             comment.save()
+            return redirect(reverse("post:read", kwargs={"post_id": comment.post.id}))
     return render(request, './post/editComment.html', {'comment': comment})
 
 
 def remove_comment(request, comment_id):
     comment = Comment.objects.get(pk=comment_id)
+    post_id = comment.post.id
     if request.method == "POST":
         if request.user == comment.user:
             comment.delete()
+            return redirect(reverse("post:read", kwargs={'post_id': post_id}))
     return render(request, './post/deleteComment.html', {'comment': comment})
 
 

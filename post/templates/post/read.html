@@ -224,7 +224,7 @@
                                                                         {% endif %}
                                                                     </h4>
                                                                     <span class="time">{{ replyIn.timestamp }}</span>
-                                                                    <a href="#" class="reply">Reply</a>
+                                                                    <a href="#" onclick="ReplyForm(event, {{ comment.id }})" id="{{ comment.id }}replyForm" class="reply">Reply</a>
                                                                 </div>
                                                               <p>{{ replyIn.content }}</p>
                                                             </div>
