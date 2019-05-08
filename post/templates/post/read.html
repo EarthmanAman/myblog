@@ -7,7 +7,21 @@
     <title>{{ post.subCategory.name }}-{{ post.title }}</title>
 {% endblock %}
 
+{% block css %}
+    <style>
+        .pop {
+           animation: zoom 0.6s;
+            position: relative;
 
+        }
+        textarea {
+            border: 1px solid green;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+    </style>
 {% block content %}
     	<!-- Header -->
 		<header id="header">
@@ -187,7 +201,7 @@
                                             <p>{{ comment.content }}</p>
                                                     <div id="{{ comment.id }}form" style="display: none">
                                                         {% if request.user.is_authenticated%}
-                                                            <form class="post-reply" method="post" action="">
+                                                            <form class="post-reply pop" method="post" action="">
                                                                 {% csrf_token %}
                                                                 <input type="hidden" value="{{ comment.id }}" name="parent">
                                                                 <div class="row">
