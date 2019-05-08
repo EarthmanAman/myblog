@@ -60,7 +60,7 @@ def read(request, slug):
     """Saving views"""
     current_site = get_current_site(request)
     if current_site.domain == "howintech.com" or current_site.domain == "www.howintech.com" or current_site.domain == "howintech.net" or current_site.domain == "www.howintech.net":
-        post = Post.objects.get(slug=slug, site__id=current_site.pk)
+        post = Post.objects.get(slug=slug)
     else:
         post = Post.objects.get(slug=slug)
     post.views += 1
