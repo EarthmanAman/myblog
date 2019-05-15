@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block meta %}
-    <meta name="description" content="howintech-popular posts">
+    {% for postIn in two_post %}
+    <meta name="description" content="{{ postIn.title }}">
+    {% endfor %}
 {% endblock %}
 {% block title %}
-    <title>HowInTech-popular posts</title>
+    <title>HowInTech / popular posts</title>
 {% endblock %}
 
 {% block content %}

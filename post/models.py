@@ -46,7 +46,7 @@ class Post(models.Model):
     subCategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, blank=True, null=True)
     views = models.IntegerField(default=0)
     date = models.DateField(default=timezone.now)
-    title = RichTextField()
+    title = models.TextField(blank=True, null=True)
     description = models.TextField()
     content = RichTextField()
     pic = models.ImageField(blank=True, null=True)
