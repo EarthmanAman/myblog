@@ -18,8 +18,7 @@ def user_register(request):
             new_user.username = email
             new_user.set_password(password)
             new_user.save()
-            username = form.cleaned_data['username']
-            userIn = authenticate(username=username, password=password)
+            userIn = authenticate(username=email, password=password)
             if userIn:
                 login(request, userIn)
                 return redirect("/")
