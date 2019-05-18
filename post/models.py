@@ -64,12 +64,12 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post:read", kwargs={'slug': self.slug})
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        try:
-            ping_google()
-        except Exception:
-            pass
+    # def save(self, force_insert=False, force_update=False, using=None,
+    #          update_fields=None):
+    #     try:
+    #         ping_google()
+    #     except Exception:
+    #         pass
     # class Meta:
     #     ordering = ["-date"]
 
