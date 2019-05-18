@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b18ceba-aff7-45eb-9a5c-34e7a8fc81d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/media/trial.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180418_130457.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180502_134356.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180506_213733.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180506_213744.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180506_214602.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180614_112218.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live_static_files/media_root/IMG_20180826_190436.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180418_130457.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180420_151218.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180515_201024.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180614_112218.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180716_152136.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180818_192212.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_20180826_190436.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/IMG_g0vgnn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/download.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/download_lD704iQ.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/templates/post/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/post/templates/post/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,11 +72,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+            <state relative-caret-position="372">
+              <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/media/trial.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -142,6 +133,7 @@
         <option value="$PROJECT_DIR$/post/models.py" />
         <option value="$PROJECT_DIR$/post/templates/post/index.html" />
         <option value="$PROJECT_DIR$/blog/settings.py" />
+        <option value="$PROJECT_DIR$/media/trial.txt" />
       </list>
     </option>
   </component>
@@ -277,12 +269,12 @@
       <workItem from="1557846432180" duration="1212000" />
       <workItem from="1557929460337" duration="3564000" />
       <workItem from="1558077323153" duration="2723000" />
-      <workItem from="1558167487339" duration="1351000" />
+      <workItem from="1558167487339" duration="2108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38881000" />
+    <option name="totallyTimeSpent" value="39638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="768" extended-state="6" />
@@ -476,8 +468,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+        <state relative-caret-position="372">
+          <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/trial.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
