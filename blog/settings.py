@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "live_static_files", 'static_root')
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/live_static_files/media_root/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, "live_static_files", 'media_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, "live_static_files", 'media_root')
 # Activate Django-Heroku.
