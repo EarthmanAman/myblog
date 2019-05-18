@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b18ceba-aff7-45eb-9a5c-34e7a8fc81d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/trial.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7b18ceba-aff7-45eb-9a5c-34e7a8fc81d5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/compressed/templates/foundation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/media" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -269,12 +266,12 @@
       <workItem from="1557846432180" duration="1212000" />
       <workItem from="1557929460337" duration="3564000" />
       <workItem from="1558077323153" duration="2723000" />
-      <workItem from="1558167487339" duration="2108000" />
+      <workItem from="1558167487339" duration="2409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39638000" />
+    <option name="totallyTimeSpent" value="39939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="768" extended-state="6" />
