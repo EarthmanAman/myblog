@@ -14,6 +14,8 @@ def user_register(request):
         if form.is_valid():
             password = request.POST.get('password')
             new_user = form.save(commit=False)
+            email = form.cleaned_data['email']
+            new_user.username = email
             new_user.set_password(password)
             new_user.save()
             username = form.cleaned_data['username']

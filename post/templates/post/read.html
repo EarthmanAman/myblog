@@ -164,7 +164,7 @@
 								</div>
 							</form>
                             {% else %}
-                             <p class="alert-warning">You need to be logged in to add a comment</p>
+                             <p class="alert-warning">You need to be logged in to add a comment <a href="{% url 'accounts:login_user' %}">login</a> </p>
                             {% endif %}
 						</div>
 						<!-- /reply -->

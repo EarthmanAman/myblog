@@ -12,12 +12,13 @@
                     <h2>LOGIN</h2>
                     <form action="" method="post" class="form-group">
                         {% csrf_token %}
-                        <label>Username</label><br>
+                        <label>Email</label><br>
                         <input class="form-control" type="text" name="username" placeholder="username" required><br>
                         <label>Password</label><br>
                         <input class="form-control" type="password" name="password" placeholder="password" required><br>
                         <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
+                    </form><br>
+                    <p>Create account <a href="{% url 'accounts:user_register' %}">register</a> </p>
                 </div>
             </div>
         </div>
