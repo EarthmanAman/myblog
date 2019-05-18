@@ -4,7 +4,7 @@
     <meta name="description" content="How in Tech is a tech forum motivate in educating the public about technology in simple terms and to highlight the state of technology in Africa Continent">
 {% endblock %}
 {% block title %}
-    <title>How In Tech / index</title>
+    <title>How In Tech | index</title>
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
 					<div class="col-md-6">
 						<div class="post post-thumb">
                             {% if post.pic %}
-							    <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
+							    <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{{ post.pic }}" alt=""></a>
                             {% else %}
                                 <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-1.jpg' %}" alt=""></a>
                             {% endif %}
@@ -65,7 +65,7 @@
 					<div class="col-md-4">
 						<div class="post">
                             {% if post.pic %}
-							    <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{{ post.pic.url }}" alt=""></a>
+							    <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{{ post.pic }}" alt=""></a>
                             {% else %}
                                 <a class="post-img" href="{% url 'post:read' post.slug %}"><img style="width: 100%; height:300px;" src="{% static '/img/post-3.jpg' %}" alt=""></a>
                             {% endif %}
