@@ -29,7 +29,7 @@
 			<!-- Page Header -->
 			<div id="post-header" class="page-header">
                 {% if post.pic %}
-                    <div class="background-img" style="background-image: url('{{ post.pic.url }}');"></div>
+                    <div class="background-img" style="background-image: url('{{ post.pic.url }}')"></div>
                 {% else %}
                     <div class="background-img" style="background-image: url('{% static '/img/post-page.jpg' %}');"></div>
                 {% endif %}
@@ -129,7 +129,7 @@
 									</div>
 									<div class="media-body">
 										<div class="media-heading">
-											<h3>AUTHOR: {{ post.author.user.username }} </h3>
+											<h3>Author: {{ post.author.user.firstname }} {{ post.author.user.lastname }} </h3>
 										</div>
 										<p>{{ post.authorView | safe}}</p>
 										<ul class="author-social">
